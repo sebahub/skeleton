@@ -1,0 +1,135 @@
+@import reset
+@import mixins
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,200,700,800')
+
+// VARIABLES
+
+$ratio: 24 / 18
+
+// Colors
+
+$col-prim: #2e2e2e
+$col-sec: #fafafa
+
+// Font-sizes
+
+$golden-ratio: 1.618
+$font-size-root: 1.125em
+
+$font-size-p: $font-size-root
+$font-size-h4: $font-size-p
+$font-size-h3: $font-size-p * $golden-ratio
+$font-size-h2: $font-size-h3 * $golden-ratio
+$font-size-h1: $font-size-h2 * $golden-ratio
+
+=uppercase
+    text-transform: uppercase
+
+// Base
+
+body
+    font-family: "Roboto", sans-serif
+
+p
+    font-size: $font-size-p
+h1
+    font-size: $font-size-h1
+h2
+    font-size: $font-size-h2
+h3
+    font-size: $font-size-h3
+h4
+    font-size: $font-size-h4
+
+
+//- Navigation
+
+
+.hidden
+    display: none
+
+.visible
+    display: block
+
+.topbar
+    width: 100%
+
+nav
+    width: 100%
+    //display: flex
+    .nav-mobile
+        position: absolute
+        background: white
+        width: 96%
+        right: 2%
+        //top: 8px
+        //z-index: 99 
+        +material-shadow(1)
+        //display: none
+        transform: scale(0)
+        transform-origin: right top
+        //transition: all ease 0.2s
+        +ease-quint
+        &.visible
+            display: block
+            transform: scale(1)
+            transform-origin: right top
+            
+        li
+            +uppercase
+            width: max-content
+            margin: auto
+            line-height: 2
+
+.nav-logo
+    margin-top: 16px
+    margin-left: 2%
+    img
+        height: 36px
+
+/*.nav-mobile-close
+    position: absolute
+    right: 4%
+    top: 10px
+    background: grey
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    text-align: center
+    &::before
+        position: absolute
+        content: ""
+        width: 2px
+        height: 18px
+        background: black
+        //right: 2%
+        top: 5px
+        transform: rotate(45deg)
+    &::after
+        position: absolute
+        content: ""
+        width: 2px
+        height: 18px
+        background: black
+        //right: 2%
+        top: 5px
+        transform: rotate(-45deg)*/
+
+.nav-mobile-burger
+    position: absolute
+    right: 2%
+    top: 26px
+    .bun
+        width: 24px
+        height: 4px
+        margin-bottom: 2px
+        background: black
+        //transition: all ease 0.2s
+        +ease-quint
+    .top.animation
+        transform: translateY(6px) rotate(45deg)
+    .middle.animation
+        opacity: 0
+    .bottom.animation
+        transform: translateY(-6px) rotate(-45deg)
